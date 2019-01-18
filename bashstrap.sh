@@ -7,7 +7,9 @@ _indirect() {
 	echo ${!1}
 }
 
-alias const=readonly
+const() {
+	readonly $@
+}
 
 #### Color 
 
