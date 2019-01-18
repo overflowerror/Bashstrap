@@ -1,9 +1,13 @@
 #!/bin/bash
 
+#### Misc
+
 # really hacky; don't tell anyone
 _indirect() {
 	echo ${!1}
 }
+
+alias const=readonly
 
 #### Color 
 
@@ -177,14 +181,14 @@ pause() {
 
 #### LOGGING
 
-readonly _VERBOSITY_DEBUG=-1
-readonly _VERBOSITY_INFO=0
-readonly _VERBOSITY_WARN=1
-readonly _VERBOSITY_ERROR=2
-readonly _VERBOSITY_CRITICAL=3
-readonly _VERBOSITY_SILENT=100
+const _VERBOSITY_DEBUG=-1
+const _VERBOSITY_INFO=0
+const _VERBOSITY_WARN=1
+const _VERBOSITY_ERROR=2
+const _VERBOSITY_CRITICAL=3
+const _VERBOSITY_SILENT=100
 
-readonly _VERBOSITY_DEFAULT=$_VERBOSITY_INFO
+const _VERBOSITY_DEFAULT=$_VERBOSITY_INFO
 
 setVerbosity() {
 	export _VERBOSITY=$(_indirect "_VERBOSITY_$1")
