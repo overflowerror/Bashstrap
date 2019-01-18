@@ -5,7 +5,7 @@ _indirect() {
 	echo ${!1}
 }
 
-#### Misc 
+#### Color 
 
 _color() {
 	case $1 in
@@ -103,7 +103,7 @@ color() {
 	fi
 }
 
-#### Parsing
+#### Input
 
 _yesNo() {
 	case $1 in
@@ -150,6 +150,29 @@ decision() {
 		fi
 	done
 
+}
+
+getch() {
+  stty -icanon
+  eval "$1=\$(dd bs=1 count=1 2>/dev/null)"
+  stty icanon
+}
+
+enableEcho() {
+	stty echo
+}
+
+disableEcho() {
+	stty -echo
+}
+
+pause() {
+	local tmp
+	disableEcho
+	echo -n "Press any key to continue. "
+	getch tmp
+	enableEcho
+	echo
 }
 
 #### LOGGING
